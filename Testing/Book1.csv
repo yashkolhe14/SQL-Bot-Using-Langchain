@@ -1,0 +1,9 @@
+﻿HumanQuery,SQLQuery
+count the states which have elevations lower than what alabama has,select count(highlow.state_name) from highlow where highlow.lowest_elevation <(select highlow.lowest_elevation from highlow where highlow.state_name='alabama');
+give me the number of rivers in california,select count(river.river_name) from river where river.traverse='california';
+give me the states that border utah,select border_info.border from border_info where border_info.state_name='utah';
+how high is mount mckinley,select highlow.highest_elevation from highlow where highlow.highest_point='mount mckinley';
+how high is the highest point in america,select max(highlow.highest_elevation) from highlow;
+how long is the longest river in california,select river.length from river where river.traverse='california' and river.length=(select max(river.length) from river where river.traverse='california');
+how long is the ohio river,select river.length from river where river.river_name='ohio';
+how many people lived in austin,select city.population from city where city.city_name='austin';
